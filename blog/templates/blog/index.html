@@ -1,0 +1,43 @@
+{% extends 'blog/basic.html'%}
+{% block title %} Blog {% endblock %}
+{% block body %}
+<div class="container">
+   <div class="jumbotron p-4 p-md-5 my-2 text-white rounded bg-dark">
+    <div class="col-md-12 px-0">
+      <h1 class="display-4 font-italic">Ecommerce Website Blog</h1>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    {% for p in post %}
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{p.title}}</h3>
+          <div class="mb-1 text-muted">{{p.pub_date}}</div>
+          <p class="card-text mb-auto">{{p.desc|slice:"0:80"}}..</p>
+          <a href="/blog/blogpost/{{p.blogid}}" class="stretched-link">
+            Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250"
+               src="/media/{{p.image_file}}"
+               aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+               focusable="false">
+
+          </img>
+
+        </div>
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:2%}
+
+  </div>   <!-- row close-->
+
+  <div class="row mb-2">
+    {% endif%}
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

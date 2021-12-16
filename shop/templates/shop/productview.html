@@ -1,0 +1,24 @@
+{% extends 'shop/basic.html'%}
+{% block title%}{{proview.product_name}}{% endblock%}
+{% block body%}
+          <div class="container my-2">
+              <div class="row">
+                  <div class="col-md-4">
+                      <img src="/media/{{proview.product_image}}" height="250px"
+                           width="350px">
+
+                      <div class="row mx-2 my-2">
+                          <center>
+                          <button class="btn btn-primary mx-2">Add To Cart</button>
+                          <button class="btn btn-primary">Buy Now</button>
+                              </center>
+                      </div>
+                  </div>
+                  <div class="col-md-8">
+                      <p>{{proview.product_name}}</p>
+                      <p>{{proview.product_desc}}</p>
+                      <p>Rs. {{proview.product_price}}</p>
+                  </div>
+              </div>
+          </div>
+{% endblock%}

@@ -1,0 +1,41 @@
+{% extends 'shop/basic.html'%}
+{% block title%}Contact{% endblock%}
+
+{% block body%}
+<div class="container my-2">
+    <center><h2>-------------------------------- Contact Form ----------------------------------</h2></center>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+    <label for="name">Enter Name</label>
+    <input type="text" class="form-control" id="name" name="name" >
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Enter Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" name="emailid" >
+  </div>
+        <div class="form-group">
+    <label for="mobno">Enter Mobile No</label>
+    <input type="tel" class="form-control" id="mobno" name="mobileno">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Enter Feedback</label>
+    <textarea class="form-control" name="feedback" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+
+        <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
+</form>
+
+</div>
+
+{% endblock %}
+{%block js%}
+<script>
+    {% if flag %}
+
+        alert("Successfully Submitted Contact Form");
+        window.location = "http://127.0.0.1:8000/shop/";
+    {% endif %}
+
+</script>
+{% endblock %}

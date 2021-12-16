@@ -1,0 +1,44 @@
+{% extends 'blog/basic.html'%}
+{% block title %} Blog {% endblock %}
+{% block body %}
+<div class="container">
+     <div class="row">
+    <div class="col-md-8 blog-main my-2">
+      <div class="blog-post">
+        <h2 class="blog-post-title">{{pdata.title}}</h2>
+        <p class="blog-post-meta">{{pdata.pub_date}}</p>
+
+        <p>{{pdata.desc}}</p>
+        <hr>
+
+        <h2>{{pdata.head0}}</h2>
+        <p>{{pdata.chead0}}</p>
+
+        <h3>{{pdata.head1}}</h3>
+        <p>{{pdata.chead1}}</p>
+
+        <h3>{{pdata.head2}}</h3>
+        <p> {{pdata.chead2}}</p>
+
+      </div><!-- /.blog-post -->
+
+    </div>
+          <aside class="col-md-4 blog-sidebar my-2">
+      <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">About</h4>
+        <p class="mb-0">{{pdata.desc|slice:"0:150"}}</p>
+      </div>
+
+               <div class="fb-like"
+                    data-href="http://127.0.0.1:8000/blog/blogpost/{{pdata.blogid}}"
+                    data-width="15" data-layout="button" data-action="like"
+                    data-size="large" data-share="false"></div>
+    </aside>
+
+
+
+     </div>
+
+
+</div>
+{% endblock %}
